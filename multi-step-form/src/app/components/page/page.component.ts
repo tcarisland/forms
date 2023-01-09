@@ -12,30 +12,30 @@ import { FormPage } from 'src/app/store/models/form-page.model';
 })
 export class PageComponent {
 
-  formPageList$: Observable<Array<FormPage>>;
+  formPage$: Observable<FormPage>;
   currentRoute: string;
+  formPageMissing: boolean;
 
   constructor(private router: Router, private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.currentRoute = this.router.url;
-    console.log("store select")
-    this.formPageList$ = this.store.select((state) => state.formPages);
-    this.formPageList$.subscribe(e => {
-      console.log(e);
-    })
+    this.currentRoute = this.router.url.replaceAll("/", "");
+    this.formPage$ = this.store.select((state) => state.formPages.find(page => page.id === this.currentRoute));
+  }
+
+  onSubmit(): void {
+    console.log("onSubmit");
+  }
+
+  onPrevClicked(): void {
+    console.log("onPrevClicked");
   }
 
   /*
-    courseItems$: Observable<Array<CourseItem>>;
-  constructor(private store: Store<AppState>) {}
-  ngOnInit(): void {
-    this.courseItems$ = this.store.select((store) => store.course);
-  }
-
   addCourse(form: NgForm) {
     this.store.dispatch(new AddItemAction(form.value));
     form.reset();
   }
   */
 }
+

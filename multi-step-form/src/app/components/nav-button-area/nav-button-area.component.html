@@ -1,0 +1,10 @@
+<!-- Button Area -->
+<div class="grid grid-cols-2 gap-x-2 gap-y-2 mt-8">
+    <div *ngIf="prevVisible" class="bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline col-start-1 col-end-1 text-center cursor-pointer" data-testid="back" (click)="prevClicked.emit()">
+        Back
+    </div>
+    <button *ngIf="nextVisible" type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline col-start-2 col-end-2 text-center"
+    data-testid="submit" (click)="nextClicked.emit()">
+        Next
+    </button>
+</div>

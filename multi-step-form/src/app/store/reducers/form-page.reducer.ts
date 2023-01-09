@@ -6,12 +6,29 @@ import { FormPageAction as FormPageAction, FormPageActionType } from '../actions
 const initialState: Array<FormPage> = [
   {
     id: "step1",
-    labels: "labels go here",
+    inputs: [
+      {
+        id: "firstName",
+        label: "First Name",
+        value: ""
+      },
+      {
+        id: "lastName",
+        label: "Last Name",
+        value: ""
+      }
+    ],
     title: "Step One"
   },
   {
     id: "step2",
-    labels: "more labels",
+    inputs: [
+      {
+        id: "phone",
+        label: "Phone",
+        value: ""
+      }
+    ],
     title: "Step Two"
   }
 ];
